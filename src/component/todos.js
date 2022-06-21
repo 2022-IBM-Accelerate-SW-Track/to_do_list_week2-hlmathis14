@@ -16,20 +16,19 @@ const Todos = ({ todos, deleteToDo }) => { /****HERE****Add deleteTodo as a new 
     todos.map((todo) => {
       return (
         <Grid key={todo.id}>
-          <Card>
+          <Card style={{marginTop:10}}> /****HERE****Add style to the Card component*******/
             {/* Remember, we set the local state of this todo item when the user submits the form in 
             AddTodo.js. All we need to do is return the todo list item {todo.content} */}
             <ListItemButton component="a" href="#simple-list">
             <Checkbox style={{ paddingLeft: 0 }} color="primary" onClick={()=> deleteToDo(todo.id)}/>  /****HERE****Add an onClick event handler *******/ /****HERE****Add a Checkbox component and style property set to paddingLeft:0 and a color property set to primary*******/
               <ListItemText primary={todo.content} secondary={todo.date}/>
             </ListItemButton>
-            <span style={{marginTop:10}}></span> /****HERE****Add style to the Card component*******/
           </Card>
         </Grid>
       );
     })
   ) : (
-    <p>You have no todo's left</p>
+    <p>{"You have no todo's left"}</p>
   );
   // Lastly, return the todoList constant that we created above to show all of the items on the screen.
   return (
